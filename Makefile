@@ -20,7 +20,7 @@ TARGET = caesar
 default: $(TARGET)
 
 
-$(TARGET): driver.o caesar.o
+$(TARGET): driver.o caesar.o parse_file.o
 	$(CC) $(LFLAGS) $^ -o $@
 
 
@@ -29,6 +29,10 @@ driver.o: driver.c
 
 
 caesar.o: caesar.c caesar.h
+	$(CC) $(CFLAGS) $< -o $@
+
+
+parse_file.o: parse_file.c parse_file.h
 	$(CC) $(CFLAGS) $< -o $@
 
 
