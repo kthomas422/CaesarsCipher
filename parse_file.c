@@ -35,13 +35,15 @@ void parse_file(const char *filename, char **buff)
 
     int i = 0;
     for (; (ch = fgetc(fp)) != EOF; ++i) {
-        if (buff_size <= i) {
+        if (i >= buff_size) {
             buff_size *= 2;
             *buff = realloc(*buff, buff_size);
         }
         (*buff)[i] = ch;
     }
-    buff[i] = '\0';  // just in case :)
+    if (i >= buff_size)  // check if buffer is large enough
+        *buff = realloc(*buff, ++buff_size);
+    (*buff)[i] = '\0';  // just in case :)
     fclose(fp);
     return;
 }
