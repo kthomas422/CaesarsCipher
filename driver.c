@@ -66,10 +66,12 @@ int main(int argc, char **argv)
 
     if (!strcmp(argv[2], ALPH_FLAG)) {
         alph_flag = 1;
+        str_to_cipher = malloc(sizeof(char) * strlen(argv[3]));
+        strncpy(str_to_cipher, argv[3], strlen(argv[3]));
     } else if (!strcmp(argv[2], FILE_FLAG)) {
         str_to_cipher = malloc(sizeof(char) * BUFF_SIZE);
         parse_file(argv[3], &str_to_cipher);
-    } else if ( !strcmp(argv[2], BOTH_FLAG) || !strcmp(argv[2], BOTH_FLAG) ) {
+    } else if ( !strcmp(argv[2], BOTH_FLAG) || !strcmp(argv[2], BACK_FLAG) ) {
         alph_flag = 1;
         str_to_cipher = malloc(sizeof(char) * BUFF_SIZE);
         parse_file(argv[3], &str_to_cipher);
