@@ -14,6 +14,7 @@ LFLAGS = -g -Wall -Wstrict-prototypes
 
 PACKAGE_NAME = CaesarsCipher
 TARGET = caesar
+INSTALL_DIR = ~/bin
 
 
 .PHONY: default
@@ -34,6 +35,15 @@ caesar.o: caesar.c caesar.h
 
 parse_file.o: parse_file.c parse_file.h
 	$(CC) $(CFLAGS) $< -o $@
+
+
+.PHONY: install
+install: $(TARGET) | $(INSTALL_DIR)
+	cp $(TARGET) $(INSTALL_DIR)/$(TARGET)
+
+
+$(INSTALL_DIR):
+	mkdir $(INSTALL_DIR)
 
 
 .PHONY: package
