@@ -54,5 +54,5 @@ clean:
 
 .PHONY: immaculate
 immaculate: clean
-	rm -rf $(PACKAGE_NAME).tgz $(PROG)
+	rm -rf $(PACKAGE_NAME).tgz $(TARGET)
 
