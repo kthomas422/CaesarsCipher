@@ -21,7 +21,7 @@
  * Args:    The file name
  * Returns: The contents in a string
  */
-void parse_file(char *filename, char **buff)
+void parse_file(const char *filename, char **buff)
 {
     int buff_size = BUFF_SIZE;
     char ch = 0;

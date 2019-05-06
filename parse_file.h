@@ -12,5 +12,5 @@
 
 #define BUFF_SIZE 64
 
-void parse_file(char *, char **);
+void parse_file(const char *, char **);
 
